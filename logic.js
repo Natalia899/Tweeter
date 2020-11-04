@@ -1,4 +1,4 @@
-const LogicTweeter = function() {
+const Tweeter = function () {
     let _posts = [
         {
             text: "First post!",
@@ -22,56 +22,56 @@ const LogicTweeter = function() {
 
     let postIdCounter = 2
     let commentIdCounter = 6
-    const getPosts = function() {
+    const getPosts = function () {
         return _posts
     }
-    const addPost = function(text) {
+    const addPost = function (text) {
         postIdCounter++
         let post = {}
-        post.id = 'p'+ postIdCounter
+        post.id = 'p' + postIdCounter
         post.text = text
-        post.comment = ''
+        post.comments = []
         _posts.push(post)
 
     }
-    const removePost = (id) => { 
-        for (i=0; i<_posts.length; i++)
-         { 
-             
-    if (id == _posts[i].id) {
+    const removePost = (id) => {
+        for (i = 0; i < _posts.length; i++) {
 
-         _posts.splice([i],1)
-          } 
-       } 
+            if (id == _posts[i].id) {
+
+                _posts.splice([i], 1)
+            }
+        }
     }
     const addComment = (commentText, id) => {
-       commentIdCounter++
-      
-      let newComment = {}
-      for (i=0; i<_posts.length; i++) {
+        commentIdCounter++
 
-        if (id == _posts[i].id) {
-            newComment.id = 'c'+ commentIdCounter
-            newComment.text = commentText
-            console.log(newComment);
-            _posts[i].comments.push(newComment) 
+        let newComment = {}
+        for (let i in _posts) {
+
+            if (id === _posts[i].id) {
+                newComment.id = 'c' + commentIdCounter
+                newComment.text = commentText
+                console.log(_posts[i]);
+                _posts[i].comments.push(newComment) 
+                
+            }
+
+
         }
-        
-
-         } 
     }
     const removeComment = (id, commentId) => {
-        for (i=0; i<_posts.length; i++) {
-            if (id == _posts[i].id) {  
-                for (m=0; m<_posts[i].comments.length; m++) {
-                   
-                    
-            if (commentId == _posts[i].comments[m].id) {
-                 _posts[i].comments.splice([m], 1)
-            } 
-          }   
-       }
-     }
+        for (i = 0; i < _posts.length; i++) {
+            if (id == _posts[i].id) {
+                for (m = 0; m < _posts[i].comments.length; m++) {
+
+
+                    if (commentId == _posts[i].comments[m].id) {
+                        _posts[i].comments.splice([m], 1)
+                    }
+                }
+            }
+        }
     }
     return {
         getPosts,
@@ -81,15 +81,15 @@ const LogicTweeter = function() {
         removeComment
     }
 }
-const tweeter = LogicTweeter()
 
-tweeter.addPost("This is my own post!")
-tweeter.addComment("Damn straight it is!", "p3")
-tweeter.addComment("Second the best!", "p2")
+
+//tweeter.addPost("This is my own post!")
+//tweeter.addComment("Damn straight it is!", "p3")
+//tweeter.addComment("Second the best!", "p2")
 //console.log(tweeter.getPosts())
 //console.log(tweeter.getPosts())
 //tweeter.removePost("p1")
-console.log(tweeter.getPosts())
+//console.log(tweeter.getPosts())
 
 //tweeter.removeComment("p2", "c6")
 //console.log(tweeter.getPosts())
