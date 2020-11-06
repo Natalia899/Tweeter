@@ -14,8 +14,8 @@ $('#posts').on('click', '.delete', function () {
     renderer.renderPosts(tweeter.getPosts())
 })
 $('#posts').on('click', '.addComment', function () {
-    console.log($(this).closest('#newcomment').find('.newComment'))
-    tweeter.addComment($(this).closest('.post').find('.newcomment').val(), $(this).closest('.post').data().id)
+    //console.log($(this).closest('#newComment').find('input').val());
+    tweeter.addComment($(this).closest('#newComment').find('input').val(), $(this).closest('.post').data().id)
     renderer.renderPosts(tweeter.getPosts())
 })
 $('#posts').on('click', '.delete-comment', function () {

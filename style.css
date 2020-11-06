@@ -1,6 +1,6 @@
 body{
     background-color: #ecf0f1;
-    font-family: 'Balthazar', serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #container{
@@ -70,9 +70,14 @@ body{
     padding: 5px;
     border-radius: 3px;
     font-size: 0.8em;
+    margin: 5px;
 }
 
 .delete-comment{
     cursor: pointer;
     color: #e74c3c;
+    margin: 5px;
+}
+.addComment{
+    font-size: smaller;
 }
