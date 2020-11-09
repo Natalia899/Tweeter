@@ -1,5 +1,5 @@
 const Tweeter = function () {
-    let _posts = [
+    const _posts = [
         {
             text: "First post!",
             id: "p1",
@@ -27,7 +27,7 @@ const Tweeter = function () {
     }
     const addPost = function (text) {
         postIdCounter++
-        let post = {}
+        const post = {}
         post.id = 'p' + postIdCounter
         post.text = text
         post.comments = []
@@ -46,14 +46,13 @@ const Tweeter = function () {
     const addComment = (commentText, id) => {
         commentIdCounter++
 
-        let newComment = {}
-        for (let i in _posts) {
+        for (let post of _posts) {
+            const newComment = {}
 
-            if (id === _posts[i].id) {
+            if (id === post.id) {
                 newComment.id = 'c' + commentIdCounter
                 newComment.text = commentText
-                console.log(_posts[i]);
-                _posts[i].comments.push(newComment) 
+                post.comments.push(newComment) 
                 
             }
 
@@ -63,11 +62,11 @@ const Tweeter = function () {
     const removeComment = (id, commentId) => {
         for (i = 0; i < _posts.length; i++) {
             if (id == _posts[i].id) {
-                for (m = 0; m < _posts[i].comments.length; m++) {
+                for (j = 0; j < _posts[i].comments.length; j++) {
 
 
-                    if (commentId == _posts[i].comments[m].id) {
-                        _posts[i].comments.splice([m], 1)
+                    if (commentId == _posts[i].comments[j].id) {
+                        _posts[i].comments.splice([j], 1)
                     }
                 }
             }
@@ -83,14 +82,3 @@ const Tweeter = function () {
 }
 
 
-//tweeter.addPost("This is my own post!")
-//tweeter.addComment("Damn straight it is!", "p3")
-//tweeter.addComment("Second the best!", "p2")
-//console.log(tweeter.getPosts())
-//console.log(tweeter.getPosts())
-//tweeter.removePost("p1")
-//console.log(tweeter.getPosts())
-
-//tweeter.removeComment("p2", "c6")
-//console.log(tweeter.getPosts())
-//console.log(tweeter.getPosts())

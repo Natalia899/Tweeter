@@ -2,10 +2,8 @@ const Renderer = function() {
    
   const renderPosts = function(posts) { 
     $('#posts').empty()
-    //console.log(posts)
     for (let post of posts) {
             
-            // $('#posts').append(
               const newPost = $(
               `
             <div class='post' data-id='${post.id}'>
